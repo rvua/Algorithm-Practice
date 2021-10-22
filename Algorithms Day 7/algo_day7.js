@@ -50,26 +50,55 @@ for(var i=0; i<pokémon.length; i++) {
 // Challenges - using the array of pokémon above and loops:
 // 1. console.log the pokémon objects whose id is evenly divisible by 3
 for(var i=0; i<pokémon.length; i++) {
+    // check if the id of the current pokemon in the array is divisible by 3
     if(pokémon[i].id % 3 == 0) {
-        console.log(pokémon[i].name);
+        // if it is, print the current pokemon in the array
+        console.log(pokémon[i]);
     }
 }
+console.log('\n');
+
 // 2. console.log the pokémon objects that have more than one type
 for(var i=0; i<pokémon.length; i++) {
+    // check if there's more than one element in the types array of the current pokemon in the array
     if(pokémon[i].types.length > 1) {
+        // if there are, print the current pokemon in the array
         console.log(pokémon[i].name);
     }
 }
+console.log('\n');
+
 // 3. console.log the names of the pokémon whose only type is "poison"
 for(var i=0; i<pokémon.length; i++) {
-    if(pokémon[i].types == "poison"){
+    // check if there's only one element in the types array of the current pokemon in the array AND if it is equal to 'poison'
+    if(pokémon[i].types.length == 1 && pokémon[i].types[0] == 'poison'){
+        // if both conditions are true, print the name of the current pokemon in the array
     console.log(pokémon[i].name); 
     }
 }
+console.log('\n');
+
 // 4. console.log the first type of all the pokémon whose second type is "flying"
 for(var i=0; i<pokémon.length; i++) {
+    // check if the second element in the types array is equal to 'flying'
     if(pokémon[i].types[1] == "flying"){
+        // if so, print the first type
         console.log(pokémon[i].types[0]); 
     }
 }
+console.log('\n');
+
 // 5. Bonus Challenge: console.log the reverse of the names of the pokémon whose only type is "poison"
+for (var i = 0; i < pokémon.length; i++) {
+    // check if the only type is poison
+    if (pokémon[i].types == 'poison') {
+      // turn the name into an array
+      var nameArray = pokémon[i].name.split('');
+      // reverse the array
+      var reversedNameArray = nameArray.reverse();
+      // turn it back into a string
+      var joinedString = reversedNameArray.join('');
+      // print it out
+      console.log(joinedString);
+    }
+  }
