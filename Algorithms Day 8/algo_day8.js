@@ -19,13 +19,18 @@ var arr2d = [ [2, 5, 8],
               [5, 7, 7] ];
 
 function isPresent2d(arr2d, value){
+    // loop through the outer array
     for(var i = 0; i < arr2d.length; i++){
-        for(var j = 0; j<arr2d.length; j++){
-            if(arr2d[i][j] == value){
+        // loop through each inner array
+        for(var j = 0; j<arr2d[i].length; j++){
+            // check if any values in the inner array match the given value
+            if(arr2d[i][j] === value){
+                // if we find it, go ahead and return true. We dont need to check anymore values
                 return true;
             } 
         }
     } 
+    // if we make it down here, that means we never found the value. return false.
     return false;
 } 
 console.log(isPresent2d(arr2d, 7));
@@ -38,14 +43,16 @@ console.log(isPresent2d(arr2d, 7));
 
 // complete the following function
 function flatten(arr2d) {
+    // create an empty array to hold the values. this will stay 1d - flat
     var flat = [];
-    for(var i = 0; i<arr2d.length; i++){
-        let current = arr2d[i];
-        for(var j=0; j<arr2d[i].length; j++){
-        flat.push(current[j]);
+    // a loop for the parent array
+    for(let i = 0; i<arr2d.length; i++){
+        // a nested loop for the child arrays
+        for(let j=0; j<arr2d[i].length; j++){
+        flat.push(arr2d[i][j]);
         }
-
     }
+    // return when done with outer loop
     return flat;
 }
     
