@@ -154,7 +154,18 @@ class SinglyLinkedList {
     //Once the runner has arrived, attach the node's next property to the runner's next
     //Then attach the runner's next property to the node you just placed into the list
     appendValue(loc,value){
-                
+        var node = new ListNode(value)
+        var runner = this.head
+        var counter = 1;
+        while(counter < loc){  //this will get to the location given  
+            runner = runner.next
+            counter++
+        }
+        //this attaches the new node to the list by attaching it's next value to the runner's next value 
+        node.next = runner.next
+        //now that the node's next value is attached to the runner's next value 
+        //we can take those two values and place them into the list by setting the runner's next value to node
+        runner.next = node
     }
 
     //Use prependValue(loc,value) to receive a location in the list and a value
@@ -164,7 +175,14 @@ class SinglyLinkedList {
     //Once the runner has arrived one before, attach the node's next property to the runner's next
     //Then attach the runner's next property to the node you just placed into the list
     prependValue(loc,value){
-        
+        var runner = this.head;
+        for(let i = 0; i<loc-1; i++){
+            runner = runner.next
+        }
+        var new_node = new ListNode(value);
+        new_node.next = runner.next;
+        runner.next = new_node;
+        return this;
     }
 }
 
