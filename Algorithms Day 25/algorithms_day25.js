@@ -5,7 +5,7 @@
 //  iterate the array. Instead 'divide and conquer'. 
 //  Taking advantage of the fact that array is sorted. 
 
-
+       
 function binarySearch(arr, n){
     let mid = Math.floor(arr.length / 2);
     if (arr.length === 1 && arr[0] != n) {
