@@ -43,7 +43,6 @@ class BST {
         }
     }
 
-    
     findMin() {
         var runner = this.root;
         while(runner.left != null){
@@ -73,14 +72,46 @@ class BST {
             this.printTree(node.right);
         }
     }
-}
 
-let newBST = new BST();
-newBST.add(35);
-newBST.add(5);
-newBST.add(25);
-newBST.add(55);
-newBST.add(15);
-newBST.printTree(newBST.root);
-newBST.findMin(newBST.root);
-newBST.findMax(newBST.root);
+    height(rootNode) {
+        if(rootNode == null) {
+            return 0;
+          }
+        else {
+          var left = this.height(rootNode.left);
+          var right = this.height(rootNode.right);
+        if (left > right) {
+            return left + 1;
+        }
+          else {
+            return right + 1;
+          }
+        }
+      }
+
+      size(node) {
+          if(node == null) return 0;
+              
+          else return (this.size(node.left) + 1 + this.size(node.right));
+            
+              //results = (this.size(node.left) + 1 + this.size(node.right));
+              //console.log(results);
+    }
+}
+  
+  let newBST = new BST();
+  newBST.add(35);
+  newBST.add(2);
+  newBST.add(52);
+  newBST.add(57);
+  newBST.add(11);
+  newBST.add(7);
+  newBST.add(74);
+  newBST.add(45);
+  console.log(newBST.height(newBST.root));
+  console.log(newBST.size(newBST.root)); 
+  newBST.printTree(newBST.root);
+  newBST.findMin(newBST.root);
+  newBST.findMax(newBST.root);
+  // newBST.findMin(newBST.root);
+  // newBST.findMax(newBST.root);
